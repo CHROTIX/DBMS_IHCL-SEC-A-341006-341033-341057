@@ -1,24 +1,24 @@
 use ihcl_dbms;
 CREATE TABLE hotel (
     hotel_id INT AUTO_INCREMENT PRIMARY KEY,
-    hotel_name VARCHAR(100),
-    city VARCHAR(50),
-    state VARCHAR(50),
+    hotel_name VARCHAR(30),
+    city VARCHAR(20),
+    state VARCHAR(20),
     total_rooms INT
 );
 CREATE TABLE room (
     room_id INT AUTO_INCREMENT PRIMARY KEY,
     hotel_id INT,
-    room_type VARCHAR(50),
+    room_type VARCHAR(10),
     price_per_night DECIMAL(8,2),
-    room_status VARCHAR(20),
+    room_status VARCHAR(10),
     FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id)
 );
 CREATE TABLE customer (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_name VARCHAR(100),
+    customer_name VARCHAR(40),
     phone VARCHAR(15),
-    email VARCHAR(100)
+    email VARCHAR(50)
 );
 CREATE TABLE booking (
     booking_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -41,8 +41,8 @@ CREATE TABLE payment (
 CREATE TABLE employee (
     employee_id INT AUTO_INCREMENT PRIMARY KEY,
     hotel_id INT,
-    employee_name VARCHAR(100),
-    department VARCHAR(50),
+    employee_name VARCHAR(40),
+    department VARCHAR(40),
     salary DECIMAL(10,2),
     FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id)
 );
